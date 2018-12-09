@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "ex05",
+            "program": "${workspaceFolder}/ex05.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "ex06",
+            "program": "${workspaceFolder}/ex06.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "JS Fundamentals Retake Exam - 5 Sept 2018",
+            "program": "${workspaceFolder}/JS Fundamentals Retake Exam - 5 Sept 2018.js"
+        },
+        {   
+            "type": "node",
+            "request": "launch",
+            "name": "JS Fundamentals Exam - 10 June 2018",
+            "program": "${workspaceFolder}/JS Fundamentals Exam - 10 June 2018.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "JS Fundamentals Retake Exam - 24 April 2018",
+            "program": "${workspaceFolder}/JS Fundamentals Retake Exam - 24 April 2018.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "The_BIG_One",
+            "program": "${workspaceFolder}/theBigOne.js"
+        }
+    ]
+}

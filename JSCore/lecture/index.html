@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+    function multiplicationTable(size) {
+    let result = `<table border="1">\n\r<tr><th>x</th>`;
+    for (let i = 1; i<= size; i++) {
+        result += `<th>${i}</th>`;
+    }
+    result += `</tr>\n\r`
+    for (let row = 1; row<= size; row++) {
+        result += `<tr><th>${row}</th>`;
+        for (let col = 1; col<= size; col++) {
+            result += `<td>${row * col}</td>`;
+        }
+        result += '</tr>\n\r';
+    }
+    result += `</table>`;
+    document.body.innerHTML = result;
+}
+</script>
+
+</body>
+</html>
