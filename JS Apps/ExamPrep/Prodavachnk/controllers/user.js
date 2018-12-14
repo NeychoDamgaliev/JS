@@ -38,12 +38,13 @@ const user = (function(){
         let userInfo = storage.getData('userInfo');
 
         if(userModel.isAuthorized()){
+            debugger;
             $('#userViewName').text(userInfo.username);
-            $('#logoutContainer').removeClass('d-none');
-            $('.hidden-when-logged-in').addClass('d-none');
+            $('.logoutContainer').show();
+            $('.hidden-when-logged-in').hide();
         } else {
-            $('#logoutContainer').addClass('d-none');
-            $('.hidden-when-logged-in').removeClass('d-none');
+            $('.logoutContainer').hide();
+            $('.hidden-when-logged-in').show();
         }
     };
 

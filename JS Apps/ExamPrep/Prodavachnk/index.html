@@ -1,66 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Airline Administration</title>
     <!-- <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" /> -->
     <link rel="stylesheet" href="static/css/style.css">
 </head>
-<body>
-<body>
-    <nav>
-        <div class="left-container">
-            <ul>
-                <li><a href="#/">Home</a></li>
-                <li><a href="">Flights</a></li>
-                <li><a href="#/login">Login</a></li>
-                <li><a href="#/register">Register</a></li>
-            </ul>
-        </div>
-        <div class="right-container">
-            <span>Welcome, {name} |</span>
-            <a href="" class="log-out">Logout</a>
-        </div>
-    </nav>
 
-    <div id="container"></div>
+<body>
 
-    <div id="notifications">
-        <div id="loadingBox" class="notification">
-            <span>Loading …</span>
+    <body>
+        <nav>
+            <div class="left-container">
+                <ul>
+                    <li><a href="#/index">Home</a></li>
+                    <li><a href="">Flights</a></li>
+                    <li class="hidden-when-logged-in"><a href="#/login">Login</a></li>
+                    <li class="hidden-when-logged-in"><a href="#/register">Register</a></li>
+                </ul>
+            </div>
+            <div class="right-container">
+                <div class="logoutContainer">
+                    <span>Welcome,
+                        <span id="userViewName">{name}</span>
+                        |</span>
+                    <a href="#/logout" class="log-out">Logout</a>
+                </div>
+            </div>
+        </nav>
+
+        <div id="container"></div>
+
+        <div id="notifications">
+            <div id="loadingBox" class="notification">
+                <span>Loading …</span>
+            </div>
+            <div id="infoBox" class="notification">
+                <span>Info</span>
+            </div>
+            <div id="errorBox" class="notification">
+                <span>Error</span>
+            </div>
         </div>
-        <div id="infoBox" class="notification">
-            <span>Info</span>
-        </div>
-        <div id="errorBox" class="notification">
-            <span>Error</span>
-        </div>
-    </div>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/popper.js/dist/popper.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
-    <script src="node_modules/sammy/lib/min/sammy-latest.min.js"></script>
-    <script src="node_modules/sammy/lib/min/plugins/sammy.handlebars-latest.min.js"></script>
-    <!-- Helpers -->
-    <script src="helpers/storage.js"></script>
-    <script src="helpers/requester.js"></script>
-    <!-- Models -->
-    <script src="models/userModel.js"></script>
-    <!-- Controllers -->
-    <script src="controllers/home.js"></script>
-    <script src="controllers/user.js"></script>
-    <!-- Router -->
-    <script src="app.js"></script>
-    <script>
-        $(document).ajaxStart(function () {
-            debugger;
-            $("#loadingBox").show();
-        });
-        $(document).ajaxStop(function () {
-            $("#loadingBox").hide();
-        });
-    </script>
-</body>
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/popper.js/dist/popper.min.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+        <script src="node_modules/sammy/lib/min/sammy-latest.min.js"></script>
+        <script src="node_modules/sammy/lib/min/plugins/sammy.handlebars-latest.min.js"></script>
+        <!-- Helpers -->
+        <script src="helpers/storage.js"></script>
+        <script src="helpers/requester.js"></script>
+        <script src="helpers/validation.js"></script>
+        <!-- Models -->
+        <script src="models/userModel.js"></script>
+        <!-- Controllers -->
+        <script src="controllers/home.js"></script>
+        <script src="controllers/user.js"></script>
+        <!-- Router -->
+        <script src="app.js"></script>
+        <script>
+            $(document).ajaxStart(function () {
+                $("#loadingBox").show();
+            });
+            $(document).ajaxStop(function () {
+                $("#loadingBox").hide();
+            });
+        </script>
+    </body>
 
 </html>

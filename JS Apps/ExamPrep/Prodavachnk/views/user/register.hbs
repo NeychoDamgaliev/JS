@@ -13,28 +13,5 @@
     </form>
 </section>
 <script>
-    $(function () {
-
-        $("#formRegister").on('submit', function (e) {
-            let isValid = true;
-
-            if ($('input[name="username"]').val().length < 5) {
-                isValid = false;
-                $('#usernameValidation').text('Invalid username. Should be at least 5 symbols!!!');
-            }
-            if ($('input[name="pass"]').val().length === 0) {
-                isValid = false;
-                $('#passwordValidation').text('Field is requered!');
-            }
-            if ($('input[name="pass"]').val() !== $('input[name="checkPass"]').val()) {
-                isValid = false;
-                $('#usernameValidation').text('Password mismatch!!!');
-            }
-
-            if (!isValid) {
-                e.preventDefault();
-                e.stopPropagation();
-            }
-        });
-    });
+    $(validation.registerForm());
 </script>
