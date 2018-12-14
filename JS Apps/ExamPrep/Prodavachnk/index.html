@@ -1,34 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="static/css/style.css" rel="stylesheet" />
-    <title>Document</title>
+    <title>Airline Administration</title>
+    <!-- <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
-
 <body>
-
-    <!-- <div id="container"> -->
+<body>
     <nav>
         <div class="left-container">
             <ul>
-                <li><a href="/">Home</a></li>
+                <li><a href="#/">Home</a></li>
                 <li><a href="">Flights</a></li>
-                <li class="hidden-when-logged-in"><a href="#/login">Login</a></li>
-                <li class="hidden-when-logged-in"><a href="#/register">Register</a></li>
+                <li><a href="#/login">Login</a></li>
+                <li><a href="#/register">Register</a></li>
             </ul>
         </div>
         <div class="right-container">
-            <div id="logoutContainer" class="d-none">
-                <span>Welcome, <span id="userViewName">{name}</span> |</span>
-                <a href="#/logout" class="log-out">Logout</a>
-            </div>
+            <span>Welcome, {name} |</span>
+            <a href="" class="log-out">Logout</a>
         </div>
     </nav>
+
+    <div id="container"></div>
 
     <div id="notifications">
         <div id="loadingBox" class="notification">
@@ -41,10 +36,6 @@
             <span>Error</span>
         </div>
     </div>
-
-    <section class="container" id="container">
-        <h2>INDEX hide me later</h2>
-    </section>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/popper.js/dist/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -63,6 +54,7 @@
     <script src="app.js"></script>
     <script>
         $(document).ajaxStart(function () {
+            debugger;
             $("#loadingBox").show();
         });
         $(document).ajaxStop(function () {

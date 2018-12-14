@@ -9,8 +9,7 @@ const user = (function(){
         var password = ctx.params.pass;
         
         userModel.login(username, password).done(function(data){
-            storage.saveUser(data);
-                        
+            storage.saveUser(data);           
             ctx.redirect('#/');
         });
     };
