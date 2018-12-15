@@ -5,8 +5,11 @@ const validation = (function () {
             debugger;
             if ($('input[name="username"]').val().length < 5) {
                 isValid = false;
-                $('<div style="color:red;">Invalid username. Should be at least 5 symbols!!!</div>').insertAfter($('input[name="username"]'));
-                
+                let el = $('<div style="color:red;">Invalid username. Should be at least 5 symbols!!!</div>');
+                el.insertAfter($('input[name="username"]'));
+                setTimeout(function () {
+                    el.fadeOut();
+                },5000);
             }
             if ($('input[name="pass"]').val().length === 0) {
                 isValid = false;
