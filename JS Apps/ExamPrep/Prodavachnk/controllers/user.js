@@ -10,7 +10,6 @@ const user = (function(){
         
         userModel.login(username, password).done(function(data){
             storage.saveUser(data);
-                        
             ctx.redirect('#/');
         });
     };

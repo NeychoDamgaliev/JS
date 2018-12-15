@@ -32,7 +32,7 @@
 
     <div id="notifications">
         <div id="loadingBox" class="notification">
-            <span>Loading …</span>
+            <span>Loading </span>
         </div>
         <div id="infoBox" class="notification">
             <span>Info</span>
@@ -42,9 +42,7 @@
         </div>
     </div>
 
-    <section class="container" id="container">
-        <h2>INDEX hide me later</h2>
-    </section>
+    <section class="container" id="container"> </section>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/popper.js/dist/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -62,11 +60,23 @@
     <!-- Router -->
     <script src="app.js"></script>
     <script>
-        $(document).ajaxStart(function () {
+        $(function(){
+            let loadingDots;
+            
+            $(document).ajaxStart(function () {
             $("#loadingBox").show();
+            loadingDots = window.setInterval(function () {
+                var dotsContainer = $("#loadingBox").children();
+                if (dotsContainer.text().length > 10)
+                dotsContainer.text("Loading ");
+                else
+                dotsContainer.text(dotsContainer.text() + ".");
+            }, 250);
         });
         $(document).ajaxStop(function () {
             $("#loadingBox").hide();
+            clearInterval(loadingDots);
+        });
         });
     </script>
 </body>
