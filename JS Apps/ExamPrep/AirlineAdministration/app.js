@@ -1,16 +1,23 @@
 const app = Sammy('#container', function(){
     this.use('Handlebars', 'hbs');
     this.before({except: {}}, function() {
-        user.initializeLogin();
+        userController.initializeLogin();
     });
 
-    this.get('#/', home.index);
-    this.get('#/index', home.index);
-    this.get('#/login', user.getLogin);
-    this.post('#/login', user.postLogin);
-    this.get('#/logout', user.logout);
-    this.get('#/register', user.getRegister);
-    this.post('#/register', user.postRegister);
+
+    this.get('#/', homeController.index);
+    this.get('#/index', homeController.index);
+    this.get('#/login', userController.getLogin);
+    this.post('#/login', userController.postLogin);
+    this.get('#/logout', userController.logout);
+    this.get('#/register', userController.getRegister);
+    this.post('#/register', userController.postRegister);
+    this.get('#/addFlight', flightController.getAddFlight);
+    this.post('#/addFlight', flightController.postAddFlight);
+    this.get('#/flight/:id', flightController.getFlightDetails);
+
+
+    
 });
 
 $(function(){

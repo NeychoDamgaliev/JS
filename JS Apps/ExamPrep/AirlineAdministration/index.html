@@ -14,8 +14,8 @@
         <nav>
             <div class="left-container">
                 <ul>
-                    <li><a href="#/index">Home</a></li>
-                    <li><a href="">Flights</a></li>
+                    <li class="hidden-when-not-logged-in"><a href="#/index">Home</a></li>
+                    <li class="hidden-when-not-logged-in"><a href="">Flights</a></li>
                     <li class="hidden-when-logged-in"><a href="#/login">Login</a></li>
                     <li class="hidden-when-logged-in"><a href="#/register">Register</a></li>
                 </ul>
@@ -53,11 +53,14 @@
     <script src="helpers/storage.js"></script>
     <script src="helpers/requester.js"></script>
     <script src="helpers/validation.js"></script>
+    <script src="helpers/notifications.js"></script>
     <!-- Models -->
     <script src="models/userModel.js"></script>
+    <script src="models/flightModel.js"></script>
     <!-- Controllers -->
-    <script src="controllers/home.js"></script>
-    <script src="controllers/user.js"></script>
+    <script src="controllers/homeController.js"></script>
+    <script src="controllers/userController.js"></script>
+    <script src="controllers/flightController.js"></script>
     <!-- Router -->
     <script src="app.js"></script>
     <script>

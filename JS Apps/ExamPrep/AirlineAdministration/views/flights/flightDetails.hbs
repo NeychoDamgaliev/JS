@@ -1,0 +1,20 @@
+    <section id="viewFlightDetails">
+        <div class="ticket-area">
+            <div class="ticket-area-left">
+                <img src={{image}} alt="">
+            </div>
+            <div class="ticket-area-right">
+                <h3>{{destination}}</h3>
+                <div>{{origin}}</div>
+                <div class="data-and-time">
+                    {{departure}} 14:00
+                    {{#if isAuthor}}
+                    <a href="{{_id}}" class="edit-flight-detail"></a>
+                    {{/if}}
+                </div>
+                <div>
+                    {{seats}} Seats ({{cost}} per seat)
+                </div>
+            </div>
+        </div>
+    </section>
