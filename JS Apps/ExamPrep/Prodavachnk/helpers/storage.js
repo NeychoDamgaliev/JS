@@ -3,15 +3,15 @@ const storage = function () {
     const appSecret = '051ee2872060407f89b0432497f732a8';
 
     const saveData = function (key, value) {
-        localStorage.setItem(appKey + key, JSON.stringify(value));
+        sessionStorage.setItem(appKey + key, JSON.stringify(value));
     };
 
     const getData = function (key) {
-        return JSON.parse(localStorage.getItem(appKey + key));
+        return JSON.parse(sessionStorage.getItem(appKey + key));
     };
 
     const deleteData = function(key) {
-        localStorage.removeItem(appKey + key);
+        sessionStorage.removeItem(appKey + key);
     };
 
     const saveUser = function(data){

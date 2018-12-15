@@ -3,32 +3,32 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="static/css/style.css" rel="stylesheet" />
-    <title>Document</title>
+    <title>Airline Administration</title>
+    <!-- <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 
 <body>
 
-    <!-- <div id="container"> -->
-    <nav>
-        <div class="left-container">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="">Flights</a></li>
-                <li class="hidden-when-logged-in"><a href="#/login">Login</a></li>
-                <li class="hidden-when-logged-in"><a href="#/register">Register</a></li>
-            </ul>
-        </div>
-        <div class="right-container">
-            <div id="logoutContainer" class="d-none">
-                <span>Welcome, <span id="userViewName">{name}</span> |</span>
-                <a href="#/logout" class="log-out">Logout</a>
+    <body>
+        <nav>
+            <div class="left-container">
+                <ul>
+                    <li><a href="#/index">Home</a></li>
+                    <li><a href="">Flights</a></li>
+                    <li class="hidden-when-logged-in"><a href="#/login">Login</a></li>
+                    <li class="hidden-when-logged-in"><a href="#/register">Register</a></li>
+                </ul>
             </div>
-        </div>
-    </nav>
+            <div class="right-container">
+                <div class="logoutContainer">
+                    <span>Welcome,
+                        <span id="userViewName">{name}</span>
+                        |</span>
+                    <a href="#/logout" class="log-out">Logout</a>
+                </div>
+            </div>
+        </nav>
 
     <div id="notifications">
         <div id="loadingBox" class="notification">
