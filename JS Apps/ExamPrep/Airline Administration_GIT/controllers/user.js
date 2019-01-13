@@ -1,6 +1,8 @@
-const userController = (function(){
-
+const user = (function(){
     const getLogin = function(ctx){
+        if (userModel.isAuthorized()) {
+            ctx.redirect('#/');
+        }
         ctx.partial('views/user/login.hbs');
     };
 
@@ -10,48 +12,49 @@ const userController = (function(){
         
         userModel.login(username, password).done(function(data){
             storage.saveUser(data);
-            storage.saveData('id',data._id);
-            notification.info("Login Successful!")           
+            notifications.showInfo('Login successful!');            
             ctx.redirect('#/');
-        })
-        .fail(function(data) {
-            notification.error(data.responseJSON.description);
         });
     };
 
     const logout = function(ctx){
         userModel.logout().done(function(){
             storage.deleteUser();
-            notification.info("Logout successful!")
-            ctx.redirect('#/login');
-        });
-    }
+            notifications.showInfo('Logout successful!');            
 
-    const getRegister = function(ctx) {
-        ctx.partial('views/user/register.hbs');
-    };
-
-    const postRegister = function(ctx) {
-        userModel.register(ctx.params).done(function(data){
-            storage.saveUser(data);
-            notification.info("Registration Successfull!")
             ctx.redirect('#/');
         });
     }
 
-    //SHOW OR HIDE INITIAL LINKS ON STARTUP
+    const getRegister = function(ctx) {
+        if (userModel.isAuthorized()) {
+            ctx.redirect('#/');
+        }
+        ctx.partial('views/user/register.hbs');
+    };
+
+    const postRegister = function(ctx) {
+        if (ctx.params.username.length < 5 || !ctx.params.pass || ctx.params.pass !== ctx.params.checkPass) {
+            notifications.showError('Username should be atleast 5 characters long and passwords must match!');
+            return;
+        }
+        userModel.register(ctx.params).done(function(data){
+            storage.saveUser(data);
+            notifications.showInfo('Register successful!');            
+            ctx.redirect('#/');
+        });
+    }
+
     const initializeLogin = function(){
         let userInfo = storage.getData('userInfo');
 
         if(userModel.isAuthorized()){
-            $('#userViewName').text(userInfo.username);
-            // $('.logoutContainer').show();
-            $('.hidden-when-logged-in').hide();
-            $('.hidden-when-not-logged-in').show();            
+            $('#welcomeUsername').text(userInfo.username);
+            $('#logoutContainer').removeClass('d-none');
+            $('.guestNav').addClass('d-none');
         } else {
-            // $('.logoutContainer').hide();
-            $('.hidden-when-logged-in').show();
-            $('.hidden-when-not-logged-in').hide();
+            $('#logoutContainer').addClass('d-none');
+            $('.guestNav').removeClass('d-none');
         }
     };
 

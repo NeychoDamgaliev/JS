@@ -6,13 +6,13 @@ const userController = (function(){
 
     const postLogin = function(ctx){
         var username = ctx.params.username;
-        var password = ctx.params.pass;
+        var password = ctx.params.password;
         
         userModel.login(username, password).done(function(data){
             storage.saveUser(data);
             storage.saveData('id',data._id);
-            notification.info("Login Successful!")           
-            ctx.redirect('#/');
+            notification.info("Login successful.")           
+            ctx.redirect('#/dashboard');
         })
         .fail(function(data) {
             notification.error(data.responseJSON.description);
@@ -22,9 +22,13 @@ const userController = (function(){
     const logout = function(ctx){
         userModel.logout().done(function(){
             storage.deleteUser();
-            notification.info("Logout successful!")
-            ctx.redirect('#/login');
+            notification.info("Logout successful.")
+            ctx.redirect('#/');
+        })
+        .fail(function(data) {
+            notification.error(data.responseJSON.description);
         });
+        
     }
 
     const getRegister = function(ctx) {
@@ -34,24 +38,27 @@ const userController = (function(){
     const postRegister = function(ctx) {
         userModel.register(ctx.params).done(function(data){
             storage.saveUser(data);
-            notification.info("Registration Successfull!")
+            notification.info("User registration successful.")
             ctx.redirect('#/');
+        })
+        .fail(function(data){
+            notification.error(data.responseJSON.description);
         });
     }
 
-    //SHOW OR HIDE INITIAL LINKS ON STARTUP
+
     const initializeLogin = function(){
         let userInfo = storage.getData('userInfo');
 
         if(userModel.isAuthorized()){
-            $('#userViewName').text(userInfo.username);
-            // $('.logoutContainer').show();
-            $('.hidden-when-logged-in').hide();
-            $('.hidden-when-not-logged-in').show();            
+            $('#userNameSpan').text(userInfo.username);
+            $('.hidden-when-not-logged-in').show();
+            $('.second-bar>ul').show();         
+            $('.navbar-anonymous').hide();   
         } else {
-            // $('.logoutContainer').hide();
-            $('.hidden-when-logged-in').show();
+            $('.navbar-anonymous').show();   
             $('.hidden-when-not-logged-in').hide();
+            $('.second-bar>ul').hide();
         }
     };
 
