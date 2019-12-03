@@ -40,6 +40,12 @@
             "request": "launch",
             "name": "The_BIG_One",
             "program": "${workspaceFolder}/theBigOne.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Test",
+            "program": "${workspaceFolder}/newTest.js"
         }
     ]
 }
